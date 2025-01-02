@@ -177,4 +177,35 @@ while not at_goal():
         move()
     else:    
         jump()
+        
+미로 찾기 우수법 형태를 코드로 구현 #1
+
+def turn_right():
+    for _ in range(3):
+        turn_left()
+
+while not at_goal():
+    if wall_on_right() and front_is_clear():
+        move()
+    elif wall_on_right() and not front_is_clear():
+        turn_left()
+    elif not wall_on_right():
+        turn_right()
+        move()
+        
+미로 찾기 우수법 형태를 코드로 구현 #2
+
+def turn_right():
+    for _ in range(3):
+        turn_left()
+
+while not at_goal():
+    if wall_on_right():
+        if front_is_clear():
+            move()
+        else:
+            turn_left()
+    else:
+        turn_right()
+        move()        
 '''
