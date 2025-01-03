@@ -1,5 +1,20 @@
 # random 모듈 import
 import random # 단어를 임의적으로 하나 뽑기 위해서
+
+'''
+"".join(반복가능객체) method : '.' 앞에 있는 문자열을 기준으로 반복 가능 객체의 요소들을 합쳐서
+    string 형태로 반환함.
+'''
+# ex)
+# temp = ["안", "녕", "하", "세", "요"]
+# hello = ""
+# for letter in temp:
+#     hello += letter
+# print(temp)
+# print(hello)
+# print("".join(temp))
+# print(" ".join(temp))
+
 # word_list 만들 것
 word_list = [ "apple", "banana", "camel" ]
 # chosen_word 만들 것
@@ -30,9 +45,12 @@ print(display2)
 while "_" in display1:
     guess = input("알파벳 입력 >>> ")
     # 이제 guess가 선택된 단어 중에 알파벳이 같으면 "_"를 guess 문자열로 바꿔줘야됩니다.
+    for i in range(len(chosen_word)):
+        if guess == chosen_word[i]:
+            display1[i] = guess
+    print(display1)
 
+# 여기까지 코드가 실행되었다면 display에는 "_"가 없다는 의미 -> 즉 답을 맞춘 상태다
+print(" ".join(display1))
+print("정답입니다! 😃")
 
-
-# input함수 적용한 guess 만들 것
-
-print(guess)
