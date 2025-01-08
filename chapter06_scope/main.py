@@ -52,19 +52,40 @@ print(player_health)                # 함수가 호출될 때마다 전역 변�
                                     # 이상을 이유로 함수가 전역 변수의 값을
                                     # 바꾸는 이러한 코딩 방식은
                                     # 선호되지 않습니다.
-game()
-print(player_health)
-game()
-print(player_health)
-game()
-print(player_health)
-game()
-print(player_health)
-game()
-print(player_health)
-game()
-print(player_health)
+# game()
+# print(player_health)
+# game()
+# print(player_health)
+# game()
+# print(player_health)
+# game()
+# print(player_health)
+# game()
+# print(player_health)
+# game()
+# print(player_health)
 
+
+game_level = 3      # 전역 변수
+
+# 함수 정의
+def create_enemy():
+    emenies = [ "좀비", "스켈레톤", "에일리언" ]      # list의 선언 및 초기화 / 지역변수
+    if game_level < 5:
+        new_enemy = emenies[0]
+
+    print(new_enemy)
+
+# 함수 호출
+create_enemy()      # 해당 부분은 new_enemy가 if 내부에 있어도(들여쓰기가 한 탭 더 되어있어도),
+                    # main 단계에서 불러낼 수 있음.   -> 오류가 안생겼습니다 // 결과값 : 좀비
+'''
+if, while, for와 같이 콜론을 기준으로 들여쓰기가 있는 모든 코드 블록들은
+지역 범위를 만드는 것으로 간주되지 않음. -> 지역 변수의 용어 정의에 주목할 필요가 있습니다.
+
+다 작성하신 분들은 chapter07_collections package 생성
+main.py 생성
+'''
 
 
 
