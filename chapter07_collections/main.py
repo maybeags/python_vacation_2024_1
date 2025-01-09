@@ -295,28 +295,131 @@ list로 작성하신 분은 dict / dict로 작성하신 분들은 list
 1 ~ 12 사이의 월을 입력하세요 >>> 2
 2월은 28일까지 있습니다.
 '''
-month = input("1 ~ 12 사이의 월을 입력하세요 >>> ")
-last_date_dict = {
-    "1": 31,
-    "2": 28,
-    "3": 31,
-    "4": 30,
-    "5": 31,
-    "6": 30,
-    "7": 31,
-    "8": 31,
-    "9": 30,
-    "10": 31,
-    "11": 30,
-    "12": 31,
-}
+# month = input("1 ~ 12 사이의 월을 입력하세요 >>> ")
+# last_date_dict = {
+#     "1": 31,
+#     "2": 28,
+#     "3": 31,
+#     "4": 30,
+#     "5": 31,
+#     "6": 30,
+#     "7": 31,
+#     "8": 31,
+#     "9": 30,
+#     "10": 31,
+#     "11": 30,
+#     "12": 31,
+# }
 
-last_date_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-print(f"{month}월은 {last_date_dict[month]}일까지 있습니다.")
-print(f"{int(month)}월은 {last_date_list[int(month)-1]}일까지 있습니다.")
+# last_date_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+# print(f"{month}월은 {last_date_dict[month]}일까지 있습니다.")
+# print(f"{int(month)}월은 {last_date_list[int(month)-1]}일까지 있습니다.")
 
 # 짧은 버전의 list를 쓴다는 것은 기본적으로 조건문 사용하라는 겁니다.
-last_date_short = [28, 31, 30]  # 1, 3, 5, 7, 8, 10, 12월은 31일 / 4, 6, 9, 11월은 30 / 2월 28일
+# last_date_short = [28, 31, 30]  # 1, 3, 5, 7, 8, 10, 12월은 31일 / 4, 6, 9, 11월은 30 / 2월 28일
+#
+# if int(month) == 2:
+#     last_date = last_date_short[0]
+# elif int(month) == 1 or int(month) == 3 or int(month) == 5 or int(month) == 7 or int(month) == 8 or int(month) == 10 or int(month) == 12:
+#     last_date = last_date_short[1]
+# elif int(month) in (4, 6, 9, 11):
+#     last_date = last_date_short[2]
+# else:
+#     last_date = "오류"
+#
+# print(f"{month}월은 {last_date}일까지 있습니다.")
+'''
+수학 여행을 어디로 갈 지 결정하기 위해 학생들이 희망하는 모든 수학 여행 장소를 조사하기로 했습니다.
+학생들이 원하는 장소를 입력 받아 동일한 입력을 무시하고 모든 입력을 저장하려고 합니다.
+학생을 3 명으로 가정하고 실행 예와 같이 동작하는 프로그램을 작성하세요.
 
+실행 예
+희망하는 수학여행지를 입력하세요 >>> 제주
+희망하는 수학여행지를 입력하세요 >>> 제주
+희망하는 수학여행지를 입력하세요 >>> 민속촌
 
+조사된 수학여행지는 {'제주', '민속촌'}입니다.
+조사된 수학여행지는 ['제주', '민속촌']입니다.
+'''
+# 중복 제거를 위한 set -> set에 요소를 추가하는 메서드
+# list -> list에 요소를 추가하는 메서드 -> 중복 제거를 위해 set으로 형변환
+# student1 = input("희망하는 수학여행지를 입력하세요 >>> ")
+# student2 = input("희망하는 수학여행지를 입력하세요 >>> ")
+# student3 = input("희망하는 수학여행지를 입력하세요 >>> ")
+#
+# field_trip_set = set({})
+# field_trip_set.add(student1)
+# field_trip_set.add(student2)
+# field_trip_set.add(student3)
+#
+# print(f"조사된 수학여행지는 {field_trip_set}입니다.")
+# print(f"조사된 수학여행지는 {list(field_trip_set)}입니다.")
 
+# field_trip_list = []
+# for _ in range(3):
+#     student = input("희망하는 수학여행지를 입력하세요 >>> ")
+#     field_trip_list.append(student)
+#
+# field_trip_set2 = set(field_trip_list)
+# field_trip_list_fianl = list(field_trip_set2)
+#
+# print(f"조사된 수학여행지는 {field_trip_set2}입니다.")
+# print(f"조사된 수학여행지는 {field_trip_list_fianl}입니다.")
+
+# field_trip_list_2 = []
+# for _ in range(3):
+#     field_trip_list_2.append(input("희망하는 수학여행지를 입력하세요 >>> "))
+#
+# print(f"조사된 수학여행지는 {set(field_trip_list_2)}")
+# print(f"조사된 수학여행지는 {list(set(field_trip_list_2))}")
+
+'''
+사용자로부터 임의의 양의 정수를 하나 입력 받은 뒤 그 숫자만큼 '과일 이름'을 입력 받아
+basket list에 저장하는 프로그램을 구현하세요.
+
+실행 예
+몇 개의 과일을 보관할까요? >>> 5
+1번째 과일을 입력하세요 >>> 사과
+2번째 과일을 입력하세요 >>> 바나나
+3번째 과일을 입력하세요 >>> 체리
+4번째 과일을 입력하세요 >>> 오렌지
+5번째 과일을 입력하세요 >>> 망고
+입력받은 과일들은 ["사과", "바나나", "체리", "오렌지", "망고"]입니다.
+'''
+# basket = []
+# num = int(input("몇 개의 과일을 보관할까요 >>> "))
+# for i in range(num):
+#     fruit = input(f"{i+1}번째 과일을 입력하세요 >>> ")
+#     basket.append(fruit)
+#
+# print(f"입력 받은 과일들은 {basket}입니다.")
+
+# basket2 = []
+# num2 = int(input("몇 개의 과일을 보관할까요 >>> "))
+# for i in range(1, num2+1, 1):                       # 시작값, 종료값, 증감값을 이용한 방식
+#     basket2.append(input(f"{i}번째 과일을 입력하세요 >>> "))
+#
+# print(f"입력 받은 과일들은 {basket2}입니다.")
+
+'''
+짝수만 추출하기
+
+사용자로부터 임의의 양의 정수를 입력 받고, 그 정수만큼 숫자를 입력받아 list에 저장하세요.
+이후 저장된 숫자 중 짝수만 새로운 리스트에 저장하여 출력하는 프로그램을 작성하세요.
+
+실행 예
+몇 개의 숫자를 입력할까요? >>> 5
+1번째 숫자를 입력하세요 >>> 10
+2번째 숫자를 입력하세요 >>> 15
+3번째 숫자를 입력하세요 >>> 20
+4번째 숫자를 입력하세요 >>> 25
+5번째 숫자를 입력하세요 >>> 30
+입력받은 숫자들 중 짝수는 [10, 20, 30]입니다.
+'''
+even_nums = []
+for i in range(int(input("몇 개의 숫자를 입력할까요? >>> "))):
+    nums = int(input(f"{i+1}번째 숫자를 입력하세요 >>> "))
+    if nums % 2 == 0:
+        even_nums.append(nums)
+
+print(f"입력받은 숫자들 중 짝수는 {even_nums}입니다.")
