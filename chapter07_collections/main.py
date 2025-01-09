@@ -208,57 +208,115 @@ tuple_num7 = "hello. ", "nice to meet you. ", "my name is ", "Ahn Geunsu", "I am
     리스트, 튜플, 세트와 달리
     key: value의 구성으로 이루어져 있습니다.
 '''
-dict_num1 = {
-    "이름": "안근수",
-    "나이": 38,
-    "주소": "부산광역시 연제구",
-}       # 맨마지막에 있는 ,의 의미는 혹시 key-value를 추가할 때 이전 라인에서 콤마 입력하고 엔터치고
+# dict_num1 = {
+#     "이름": "안근수",
+#     "나이": 38,
+#     "주소": "부산광역시 연제구",
+# }       # 맨마지막에 있는 ,의 의미는 혹시 key-value를 추가할 때 이전 라인에서 콤마 입력하고 엔터치고
         # 또 key: value 형태로 작성하기 번거로우니까 미리 쉼표를 찍어두는 게 또 뭐 개발자들끼리의 매너라고 합니다.
 '''
 와 같은 방식으로 작성합니다.
 '''
-print(dict_num1)
-print(dict_num1["이름"])
+# print(dict_num1)
+# print(dict_num1["이름"])
 '''
     딕셔너리는 인덱스는 존재하지 않지만 위와 같이 key를 인덱스와 유사하게 사용함.
     즉, key값을 알면 저장된 값(value)을 확인할 수 있는 구조.
 '''
 # list의 각 요소를 추출하기 위한 반복문
-li2 = [10, 20, 30, 40]
+# li2 = [10, 20, 30, 40]
 # 요소를 추출하기 위한 반복문
-for num in li2:
-    print(num)
+# for num in li2:
+#     print(num)
 
 # dictionary에서 같은 방식의 반복문을 활용하게 되면
 # for i in range(len(dict_num1)):               index가 없기 때문에 오류
 #     print(dict_num1[i])
 
-for key in dict_num1:
-    print(key)              # 그냥 print시키면 dict_num1의 key만 추출됨
-    print(dict_num1[key])   # value 추출법
-    print()
+# for key in dict_num1:
+#     print(key)              # 그냥 print시키면 dict_num1의 key만 추출됨
+#     print(dict_num1[key])   # value 추출법
+#     print()
+#
+# # key 목록을 추출하는 메서드
+# print(dict_num1.keys())
+# # value 목록을 추출하는 메서드
+# print(dict_num1.values())
+#
+# print(type(dict_num1.keys()))           # 이것을 확인해보면 얘네는 list가 아니기 때문에 인덱스가 없습니다.
+# print(type(dict_num1.values()))
+#
+# keys = list(dict_num1.keys())           # index를 활용하기 위해서
+# values = list(dict_num1.values())
+#
+# print(keys[1])
+# print(values[2])
+# '''
+#     4-1. 딕셔너리 요소의 추가와 삭제
+# '''
+# dict_num1["직업"] = "코리아it아카데미 파이썬 강사"        # 기존에 없는 key를 입력하고, = value입력하면됨.
+# print(dict_num1)
+# # 하나의 key에 서로 다른 value를 저장할 수 없음 -> key 하나 당 value 하나
+# dict_num1["직업"] = "코리아it아카데미 웹 개발 강사"
+# print(dict_num1)
+# # 삭제 방법
+# dict_num1.pop("직업")     # key를 정확하게 입력해야 삭제 가능
+# print(dict_num1)         # key 삭제하면 value도 같이 날아감
 
-# key 목록을 추출하는 메서드
-print(dict_num1.keys())
-# value 목록을 추출하는 메서드
-print(dict_num1.values())
-
-print(type(dict_num1.keys()))           # 이것을 확인해보면 얘네는 list가 아니기 때문에 인덱스가 없습니다.
-print(type(dict_num1.values()))
-
-keys = list(dict_num1.keys())           # index를 활용하기 위해서
-values = list(dict_num1.values())
-
-print(keys[1])
-print(values[2])
 '''
-    4-1. 딕셔너리 요소의 추가와 삭제
+응용 예제
+
+list [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]의 3번째 요소로부터 7번째 요소만 추출한 결과, 그리고 그 list에서
+2번째 요소를 출력하는 프로그램을 작성하세요.
+
+실행 예
+3번째 요소로부터 7번째 요소 = [30, 40, 50, 60, 70]
+3번째 요소로부터 7번째 요소 중 2번째 요소 = 40
 '''
-dict_num1["직업"] = "코리아it아카데미 파이썬 강사"        # 기존에 없는 key를 입력하고, = value입력하면됨.
-print(dict_num1)
-# 하나의 key에 서로 다른 value를 저장할 수 없음 -> key 하나 당 value 하나
-dict_num1["직업"] = "코리아it아카데미 웹 개발 강사"
-print(dict_num1)
-# 삭제 방법
-dict_num1.pop("직업")     # key를 정확하게 입력해야 삭제 가능
-print(dict_num1)         # key 삭제하면 value도 같이 날아감
+list_original = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]       # 슬라이싱
+# 빈 list 선언하고 나서 기존 list의 요소들을 for 반복문을 통해 추출하여 다시 대입
+# list_sliced = []
+# for i in range(2, 7, 1):
+#     list_sliced.append(list_original[i])
+#
+# print(f"3번째 요소로부터 7번째 요소 = {list_sliced}")
+# print(f"3번째 요소로부터 7번째 요소 중 2번째 요소 = {list_sliced[1]}")
+
+# 기존 list를 바로 슬라이싱해서 새로운 list 변수에 대입하고, 그다음 새list[1]
+
+sliced_list = list_original[2:7:1]
+print(f"3번째 요소로부터 7번째 요소 = {sliced_list}")
+print(f"3번째 요소로부터 7번째 요소 중 2번째 요소 = {sliced_list[1]}")
+'''
+사용자로부터 1에서 12사이의 월을 입력 받다, 해당 월이 며칠까지 있는지 출력하는 프로그램을 작성하세요.(윤년은 고려x)
+list로 작성하신 분은 dict / dict로 작성하신 분들은 list
+
+실행 예
+1 ~ 12 사이의 월을 입력하세요 >>> 2
+2월은 28일까지 있습니다.
+'''
+month = input("1 ~ 12 사이의 월을 입력하세요 >>> ")
+last_date_dict = {
+    "1": 31,
+    "2": 28,
+    "3": 31,
+    "4": 30,
+    "5": 31,
+    "6": 30,
+    "7": 31,
+    "8": 31,
+    "9": 30,
+    "10": 31,
+    "11": 30,
+    "12": 31,
+}
+
+last_date_list = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+print(f"{month}월은 {last_date_dict[month]}일까지 있습니다.")
+print(f"{int(month)}월은 {last_date_list[int(month)-1]}일까지 있습니다.")
+
+# 짧은 버전의 list를 쓴다는 것은 기본적으로 조건문 사용하라는 겁니다.
+last_date_short = [28, 31, 30]  # 1, 3, 5, 7, 8, 10, 12월은 31일 / 4, 6, 9, 11월은 30 / 2월 28일
+
+
+
