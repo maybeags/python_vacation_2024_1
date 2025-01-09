@@ -416,10 +416,50 @@ basket list에 저장하는 프로그램을 구현하세요.
 5번째 숫자를 입력하세요 >>> 30
 입력받은 숫자들 중 짝수는 [10, 20, 30]입니다.
 '''
-even_nums = []
-for i in range(int(input("몇 개의 숫자를 입력할까요? >>> "))):
-    nums = int(input(f"{i+1}번째 숫자를 입력하세요 >>> "))
-    if nums % 2 == 0:
-        even_nums.append(nums)
+# even_nums = []
+# for i in range(int(input("몇 개의 숫자를 입력할까요? >>> "))):
+#     nums = int(input(f"{i+1}번째 숫자를 입력하세요 >>> "))
+#     if nums % 2 == 0:
+#         even_nums.append(nums)
+#
+# print(f"입력받은 숫자들 중 짝수는 {even_nums}입니다.")
 
-print(f"입력받은 숫자들 중 짝수는 {even_nums}입니다.")
+# 전체 요소를 다 저장하는 리스트 / 짝수만 저장하는 리스트 하나 print() 짝수만 저장하는 애만 출력
+# all_numbers = []
+# even_numbers = []
+# # 일반 for문
+# for i in range(int(input("몇 개의 숫자를 입력할까요? >>> "))):
+#     nums = int(input(f"{i+1}번째 숫자를 입력하세요 >>> "))
+#     all_numbers.append(nums)
+#
+# # 향상된 for문 이용
+# for number in all_numbers:
+#     if number % 2 == 0:
+#         even_numbers.append(number)
+#
+# print(f"입력받은 숫자들 중 짝수는 {even_numbers}입니다.")
+'''
+딕셔너리 기반의 연락처 관리
+
+사용자로부터 3명의 이름과 전화번호를 입력 받아 딕셔너리에 저장한 뒤, 입력한 정보를 추출하는 프로그램을 작성하세요.
+
+실행 예
+1번째 사람의 이름을 입력하세요 >>> 김일
+1번째 사람의 전화번호를 입력하세요 >>> 010-1234-5678
+2번째 사람의 이름을 입력하세요 >>> 김이
+2번째 사람의 전화번호를 입력하세요 >>> 010-2345-6789
+2번째 사람의 전화번호를 입력하세요 >>> 010-2345-6789
+3번째 사람의 이름을 입력하세요 >>> 김삼
+3번째 사람의 전화번호를 입력하세요 >>> 010-9876-5432
+
+입력받은 연락처는 {'김일':'010-1234-5678', '김이':'010-2345-6789', '김삼':'010-9876-5432'}입니다.
+'''
+# 딕셔너리에 요소를 추가하는 방법
+telephones = {}             # 비어있는 딕셔너리를 선언하는 방식
+for i in range(3):
+    dict_key = input("1번째 사람의 이름을 입력하세요 >>> ")
+    dict_value = input("1번째 사람의 전화번호를 입력하세요 >>> ")
+
+    telephones[dict_key] = dict_value
+
+print(f"입력 받은 연락처는 {telephones}입니다.")
