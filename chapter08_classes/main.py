@@ -141,41 +141,53 @@ print(waffle)을 실행시켰을 때 <__main__.WaffleMachine object at 0x000002A
 - 인스턴스 메서드는 self 키워드를 사용하여 객체의 인스턴스 변수에 접근할 수 있음. 이를 통해 객체 내부의 데이터에 접근 가능함.
 '''
 # 클래스 정의
-class Person:
-
-    # 이번에 이거 생성자가 아닙니다. 주의해서 보겠습니다.
-    def set_info(self, name, age, tel, address):
-        self.name = name
-        self.age = age
-        self.tel = tel
-        self.address = address
-
-    # 이름만 바꾸는 메서드 -> setter
-    def set_name(self, name):
-        self.name = name
-
-    # 이름만 조회하는 메서드 -> getter
-    def get_name(self):
-        return self.name
-
-    # 나이만, 연락처만, 주소만 바꾸는 setter들을 전부 작성하시오.
-
-    # 나이만, 연락처만, 주소만 조회하는 getter들을 전부 작성하시오.
-
-
-
-
-
-    # display_info1를 call1()으로 작성하시오
-    def display_info1(self):
-        print(f"이름 : {self.name}")
-        print(f"나이 : {self.age}")
-        print(f"연락처 : {self.tel}")
-        print(f"주소 : {self.address}")
-
-    # display_info2를 call3()으로 작성하시오.
-    def display_info2(self):
-        return f"이름 : {self.name}\n나이 : {self.age}\n연락처 : {self.tel}\n주소 : {self.address}"
+# class Person:
+#
+#     # 이번에 이거 생성자가 아닙니다. 주의해서 보겠습니다.
+#     def set_info(self, name, age, tel, address):
+#         self.name = name
+#         self.age = age
+#         self.tel = tel
+#         self.address = address
+#
+#     # 이름만 바꾸는 메서드 -> setter
+#     def set_name(self, name):
+#         self.name = name
+#
+#     # 이름만 조회하는 메서드 -> getter
+#     def get_name(self):
+#         return self.name
+#
+#     # 나이만, 연락처만, 주소만 바꾸는 setter들을 전부 작성하시오.
+#     def set_age(self, age):
+#         self.age = age
+#
+#     def set_tel(self, tel):
+#         self.tel = tel
+#
+#     def set_address(self, address):
+#         self.address = address
+#
+#     # 나이만, 연락처만, 주소만 조회하는 getter들을 전부 작성하시오.
+#     def get_age(self):
+#         return self.age
+#
+#     def get_tel(self):
+#         return self.tel
+#
+#     def get_address(self):
+#         return self.address
+#
+#     # display_info1를 call1()으로 작성하시오
+#     def display_info1(self):
+#         print(f"이름 : {self.name}")
+#         print(f"나이 : {self.age}")
+#         print(f"연락처 : {self.tel}")
+#         print(f"주소 : {self.address}")
+#
+#     # display_info2를 call3()으로 작성하시오.
+#     def display_info2(self):
+#         return f"이름 : {self.name}\n나이 : {self.age}\n연락처 : {self.tel}\n주소 : {self.address}"
 
 #실행 예
 '''
@@ -185,9 +197,52 @@ class Person:
 주소 : 부산광역시 연제구
 '''
 #객체 생성
-person1 = Person() # 생성자를 클래스에 정의하지 않았기 때문에 pokemon1과 달리 소괄호 내에 아무런 값이 없어도 생성 가능
+# person1 = Person() # 생성자를 클래스에 정의하지 않았기 때문에 pokemon1과 달리 소괄호 내에 아무런 값이 없어도 생성 가능
 
 # 객체에 값 대입
-person1.set_info("안근수", 38, "010-7445-7113", "부산광역시 연제구")
-person1.display_info1()
-print(person1.display_info2())
+# person1.set_info("안근수", 38, "010-7445-7113", "부산광역시 연제구")
+# person1.display_info1()
+# print(person1.display_info2())
+
+'''
+person1 객체의 이름, 나이, 전화번호, 주소를 수강생님 본인 것으로 바꾸시고, 각각 출력하는데,
+제 이름은 안근수입니다.
+나이는 38살이구요
+연락처는 010-7445-7113입니다.
+부산광역시 연제구에 살고 있습니다.
+
+라고 나올 수 있도록
+class 내부를 수정하지 말고 여기 밑에부터 작성하시오.
+'''
+# person1.set_name("김일")
+# person1.set_age(20)
+# person1.set_tel("010-1234-4567")
+# person1.set_address("뉴욕주 뉴욕시")
+# print(f"제 이름은 {person1.get_name()}입니다.\n나이는 {person1.get_age()}살이구요.")
+# print(f"연락처는 {person1.get_tel()}입니다.\n{person1.get_address()}에 살고 있습니다.")
+'''
+응용 예제
+
+다음 지시 사항을 읽고 책 제목과 저자 정보를 저장할 수 있는 Book 클래스를 생성하세요. -> 객체도 생성하시고, 실행 예를 구현하세요.
+1. 다음과 같은 방법으로 book1과 book2 인스턴스를 생성하세요.
+책 제목 = title
+책 저자 = author
+
+book1 = Book()      # book1 = Book("파이썬", "민경태") 가 아니라!!!!
+book2 = Book()
+
+2. set_title() / set_author() / set_info(전부다수정) / get_title() / get_author() / print_info() 메서드들 정의
+    단, print_info() 메서드는 책 제목과 책 저자가 전부 나와야만 함.
+    단, set_info() 메서드는 책 제목과 책 저자를 전부 입력할 수 있어야만 함.
+
+실행 예
+
+책 제목 : 파이썬
+책 저자 : 민경태
+책 제목 : 어린왕자
+책 저자 : 생텍쥐페리
+'''
+class Book:
+
+
+
