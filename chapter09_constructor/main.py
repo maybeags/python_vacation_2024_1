@@ -111,9 +111,80 @@ del s
 길 안내 Service가 시작되었습니다.
 길 안내 Service가 종료되었습니다.
 '''
+# class Service:
+#     # 생성자 정의 -> 아까 위에 것과 동일
+#     def __init__(self, service):
+#         self.service = service
+#         print(f"{self.service} Service가 시작되었습니다.")
+#
+#     def __del__(self):
+#         print(f"{self.service} Service가 종료되었습니다.")
+#
+#
+# s = Service("길 안내")     # 생성자는 객체 생성과 동시에 호출된다.
+# del s
+'''
+응용 예제
 
+1. 다음 지시 사항을 읽고 이름을 저장하는 Person 클래스를 생성하시오.
 
+지시 사항
 
+1. 다음과 같은 방법으로 man과 woman 인스턴스를 생성하시오.
+man = Person("james")
+woman = Person("emily")
+2. man과 woman 인스턴스가 생성되면 다음과 같은 메시지를 출력할 수 있도록 작성하시오.
+james is born.
+emily is born.
+
+3. 다음과 같은 방법으로 man 인스턴스를 삭제하시오.
+del man
+
+4. man 인스턴스가 삭제되면 다음과 같은 메시지를 출력할 수 있도록 작성하시오.
+james is dead.
+'''
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#         print(f"{self.name} is born.")
+#
+#     def __del__(self):
+#         print(f"{self.name} is dead.")
+#
+# man = Person("james")
+# woman = Person("emily")
+#
+# del man
+# print(f"이 밑에서 프로그램 종료됩니다.")
+'''
+예제 1.
+    학생들의 성적을 관리하는 Student 클래스를 작성하시오. 이 클래스는 
+    학생의 이름, 학번, 성적을 인스턴스 변수로 갖습니다.
+    
+    지시 사항.
+        1) Student 클래스를 정의하고 생성자를 통해 이름(name), 학번(student_id), 성적(grade)을
+            초기화하시오.
+        2) 학생의 프로필을 출력하는 인스턴스 메서드 print_grade()를 작성하시오.(call1()타입으로)
+        3) 학생의 성적을 변경할 수 있는 인스턴스 메서드 set_grade()를 작성하시오.
+        4) 세 명의 학생 인스턴스를 생성하고, 각 학생의 정보를 출력한 다음,
+            성적을 변경하고 다시 출력하시오.
+            
+student1 = Student("김철수", 20250001, "A")
+
+실행 예
+
+학생 이름 : 김철수
+학번 : 20250001
+성적 : A
+
+student2 이영희 / 20250002 / B
+student3 박민수 / 20250003 / C
+
+성적 변경 후
+김철수 A+
+이영희 A
+박민수 B+로 성적 변경 후에 다시 학생 정보 출력하시오.
+'''
 
 
 
