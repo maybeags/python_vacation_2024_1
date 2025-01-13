@@ -185,9 +185,74 @@ student3 박민수 / 20250003 / C
 이영희 A
 박민수 B+로 성적 변경 후에 다시 학생 정보 출력하시오.
 '''
+# class Student:
+#     # 생성자 정의
+#     def __init__(self, name, student_id, grade):
+#         self.name = name
+#         self.student_id = student_id
+#         self.grade = grade
+#
+#     # 성적 바꾸는 메서드 정의하시오      -> 여태까지 우리가 작성한 코드들 전체 검색하는 법 ctrl + shif + f
+#     def set_grade(self, grade):
+#         self.grade = grade
+#
+#     # 학생 속성 출력하는 메서드 정의하시오
+#     def print_grade(self):
+#         print(f"학생 이름 : {self.name}\n학번 : {self.student_id}\n성적 : {self.grade}")
+#
+# student1 = Student("김철수", 20250001, "A")
+# student2 = Student("이영희", 20250002, "B")
+# student3 = Student("박민수", 20250003, "C")
+#
+# student1.print_grade()
+# student2.print_grade()
+# student3.print_grade()
+#
+# # 성적 변경 메서드 호출
+# student1.set_grade("A+")
+# student2.set_grade("A")
+# student3.set_grade("B+")
+#
+# print("성적 변경 후")
+# student1.print_grade()
+# student2.print_grade()
+# student3.print_grade()
+'''
+예제 2. 은행 계좌를 관리하는 BanckAccount 클래스를 작성하시오. 이 클래스는 계좌 소유자 이름, 계좌 번호, 잔액을 인스턴스 변수로
+    가집니다.
+    
+    지시 사항
+    
+    1. BankAccount 클래스를 정의하고, 생성자를 통해 owner, account_num, balance를 초기화하시오.
+    2. 입금 기능을 하는 인스턴스 메서드(deposit())를 구현하세요 -> 입금 잔액을 받아 잔액을 증가시킵니다. // setter 응용
+    3. 출금 기능을 하는 인스턴스 메서드(withdraw())를 구현하세요 -> 출금 금액을 받아서 잔액을 감소시킵니다.
+        -> 잔액이 부족하면(0 미만이되면) 출금이 불가능하도록 작성해야 합니다.
+    4. 계좌 정보를 출력하는 인스턴스 메서드 print_account_info()를 구현하세요 -> 실행 예 참조
+    5. 두 개의 계좌를 생성하고, 입금과 출금을 수행한 후 계좌 정보를 출력하세요.
+    
+실행 예
+계좌 소유자 : 홍길동
+계좌 번호 : 123-456-789
+현재 잔액 : 100000원                 (십만원)
 
+계좌 소유자 : 신사임당
+계좌 번호 : 987-654-321
+현재 잔액 : 500000원                 (오십만원)
 
+50000원이 입금되었습니다. 현재 잔액 : 150000원            # account1에 대한 입금(오만원 입금)
+잔액이 부족하여 출금할 수 없습니다.                        # account1에서 200000원 출금 시도 실패 사례(이십만원 출금 실패사례)
+100000원이 출금되었습니다. 현재 잔액 : 50000원            # account1에 대한 출금 (십만원 출금 성공)
 
+100000원이 출금되었습니다. 현재 잔액 : 400000원           # account2에 대한 출금(십만원 출금)
+200000원이 입금되었습니다. 현재 잔액 : 600000원           # account2에 대한 입금(이십만원 입금)
 
+최종 계좌 정보
+계좌 소유자 : 홍길동
+계좌 번호 : 123-456-789
+현재 잔액 : 50000원                 (오만원)
 
+계좌 소유자 : 신사임당
+계좌 번호 : 987-654-321
+현재 잔액 : 600000원                 (육십만원)
 
+'''
