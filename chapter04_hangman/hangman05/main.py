@@ -1,5 +1,6 @@
 import random
-from hangman_arts import *      # * : asterisk로 발음하고 의미는 : all
+from hangman_arts import *      # *
+# : asterisk로 발음하고 의미는 : all
 from hangman_word_list import *
 
 

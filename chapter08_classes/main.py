@@ -244,5 +244,39 @@ book2 = Book()
 '''
 class Book:
 
+    # setter - call2() 형태였죠.
+    def set_title(self, title):
+        self.title = title
 
+    def set_author(self, author):
+        self.author = author
+
+    def set_info(self, title, author):
+        self.title = title
+        self.author = author
+
+    # getter - call3() 형태였습니다.
+    def get_title(self):
+        return self.title
+
+    def get_author(self):
+        return self.author
+
+    def get_info(self):
+        print(f"책 제목 : {self.title}\n책 저자 : {self.author}")
+
+book1 = Book()
+book2 = Book()
+
+# 책 제목 / 저자를 입력하는 메서드를 호출
+book1.set_title("파이썬")
+book1.set_author("민경태")
+# set_info() 사용한 예시 /  + keyword argument
+book2.set_info(author="생텍쥐페리", title="어린왕자")
+
+# 책 제목 / 저자를 출력하는 메서드를 호출
+print(f"책 제목 : {book1.get_title()}")
+print(f"책 저자 : {book1.get_author()}")
+
+book2.get_info()            # chapter09_constructor package를 생성 -> main.py 생성하세요.
 
