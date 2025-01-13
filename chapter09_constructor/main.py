@@ -256,3 +256,25 @@ student3 박민수 / 20250003 / C
 현재 잔액 : 600000원                 (육십만원)
 
 '''
+class BankAccount:
+    # 생성자 정의
+    def __init__(self, owner, account_num, balance):
+        self.owner = owner
+        self.account_num = account_num
+        self.balance = balance
+
+    # 입금 메서드 정의 -> setter 관련
+    def deposit(self, money):
+        pass
+
+    # 출금 메서드 정의 -> setter 관련
+    def withdraw(self, money):
+        pass
+
+    # 계좌 정보 메서드 정의 -> getter 관련
+    def print_account_info(self):
+        print()
+
+account1 = BankAccount("홍길동", "123-456-789", 100000)
+account2 = BankAccount(balance=500000, owner="신사임당", account_num="987-654-321")
+
