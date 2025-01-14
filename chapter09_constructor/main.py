@@ -265,16 +265,54 @@ class BankAccount:
 
     # 입금 메서드 정의 -> setter 관련
     def deposit(self, money):
-        pass
+        self.balance += money
+        print(f"{money}원이 입금되었습니다. 현재 잔액 : {self.balance}")
 
     # 출금 메서드 정의 -> setter 관련
     def withdraw(self, money):
-        pass
+        if self.balance - money >= 0:
+            self.balance -= money
+            print(f"{money}원이 출금되었습니다. 현재 잔액 : {self.balance}")
+        else:
+            print("잔액이 부족하여 출금할 수 없습니다.")
 
     # 계좌 정보 메서드 정의 -> getter 관련
     def print_account_info(self):
-        print()
+        print(f"계좌 소유자 : {self.owner}")
+        print(f"계좌 번호 : {self.account_num}")
+        print(f"현재 잔액 : {self.balance}")
 
 account1 = BankAccount("홍길동", "123-456-789", 100000)
 account2 = BankAccount(balance=500000, owner="신사임당", account_num="987-654-321")
+
+account1.print_account_info()
+print()
+account2.print_account_info()
+print()
+account1.deposit(50000)
+account1.withdraw(200000)
+account1.withdraw(100000)
+print()
+account2.withdraw(100000)
+account2.deposit(200000)
+print("\n최종 계좌 정보")
+account1.print_account_info()
+print()
+account2.print_account_info()
+'''
+chapter10_coffee_machine package 생성
+
+github.com/maybeags/python_vacation_2024_1로 들어갑니다.
+chapter10_coffee_machine로 들어가시면
+coffee_machine_manual이 있습니다. 이거 전체 복사 하시고
+
+chapter10_coffee_machine package 우클릭 -> new -> file -> coffee_machine_manual.txt 생성한 후에
+붙여넣기 합니다.
+
+chapter10_coffee_machine 우클릭 -> new -> package -> pop_version 생성
+pop_version 우클릭 -> new -> python file -> main.py
+
+'''
+
+
 
