@@ -93,12 +93,10 @@ while is_on:
     if choice == "off":
         is_on = False
         print("자판기를 종료합니다.🙌")
-        # break
     elif choice == "report":
         print(f"물 : {resources["물"]}\n우유 : {resources["우유"]}\n커피 : {resources["커피"]}\n수익 : {profit}")
     elif choice in ("에스프레소", "라떼", "카푸치노"):
-        if is_resource_enough(MENU[choice]["재료"]):
-            if is_transaction_successful(money_received=process_coins(), drink_cost=MENU[choice]["가격"]):
-                make_coffee(choice, MENU[choice]["재료"])
+        if is_resource_enough(MENU[choice]["재료"]) and is_transaction_successful(money_received=process_coins(), drink_cost=MENU[choice]["가격"]):
+            make_coffee(choice, MENU[choice]["재료"])
     else:
         print("잘못 입력하셨습니다. 다시 입력해주세요.")
