@@ -7,6 +7,9 @@
 -> 좌상단에 + 눌러서 필요한 패키지 검색 및 설치
 '''
 from prettytable import PrettyTable
+from pokemon_data import pokemon_data
 
 # PrettyTable 클래스의 객체
 table = PrettyTable()
+
+print(pokemon_data[24][1])

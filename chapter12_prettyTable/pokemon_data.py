@@ -26,3 +26,4 @@ pokemon_data = [
     (25, "피카츄", "전기"),
     (26, "라이츄", "전기")
 ]
+# https://www.notion.so/pokemon_prettytable-08293d15b8be4146aed1ea619ea385a5?pvs=4
