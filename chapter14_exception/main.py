@@ -234,9 +234,107 @@ ScoreOutOfRangeError 클래스를 정의해서 사용하겠습니다.
 +
 프로그램이 종료되었다는 메시지를 맨 마지막에 작성하세요.
 '''
-score = float(input("점수를 입력하세요 >>> "))
-if score >= 80:
-    print("합격입니다.")
-else:
-    print("불합격입니다.")
+# 사용자 정의 예외 클래스 작성
+# class ScoreOutOfRangeError(Exception):
+#     """사용자가 말도안되는 점수 입력했을 때 발생하는 예외 처리 클래스입니다."""
+#     pass
+# try :
+#     score = float(input("점수를 입력하세요 >>> "))
+#     if score < 0 or score > 100:
+#         raise ScoreOutOfRangeError("점수는 0이상 100 이하입니다.")
+# except ScoreOutOfRangeError as e:
+#     print("점수범위를 벗어났습니다.")
+#     print(e)
+# except ValueError as e:
+#     print("점수는 숫자로 입력해야합니다")
+#     print(e)
+# except Exception as e:
+#     print(e)
+# else:
+#     if score >= 80:
+#         print("합격입니다.")
+#     else:
+#         print("불합격입니다.")
+# finally:
+#     print("프로그램이 종료되었습니다.")
+# 이상의 코드를 중심으로 try / except / else / finally 문을 작성할 필요가 있겠습니다.
+'''
+기본적인 예외 처리
+사용자로부터 숫자를 입력 받아 해당 숫자를 100으로 나누는 값을 출력하는 프로그램을 작성하시오.
+만약 사용자가 0을 입력하거나 숫자가 아닌 값을 입력하면 적절한 예외 메시지를 출력하시오.
 
+지시 사항
+
+1. 사용자로부터 숫자를 입력 받는다.
+2. 입력받은 숫자를 100을 해당 숫자로 나누어 결과를 출력한다.
+3. 입력값이 0일 경우, ZeroDivisionError를 처리하여 "0으로 나눌 수 없습니다."라는 메시지를 출력한다.
+4. 입력값이 숫자가 아닌 경우, ValueError를 처리하여 "숫자만 입력할 수 있습니다."라는 메시지를 출력한다.
+5. 예외가 발생하지 않는 경우, "정상적으로 처리되었습니다."라는 메시지를 출력한다.
+6. 프로그램 종료 메시지를 출력한다.
+
+'''
+
+# 사람을 신뢰할 수 있을 때 작성되는 코드 -> try / else파트로 나눌 필요가 있겠네요
+# try:
+#     num = int(input("숫자를 입력하세요 >>> "))
+#     result = 100/num
+# except ZeroDivisionError:
+#     print("0으로 나눌 수 없습니다.")
+# except ValueError:
+#     print("숫자만 입력할 수 있습니다.")
+# except Exception as e:
+#     print(e)
+# else:
+#     print("정상적으로 처리되었습니다.")
+#     print(f"결과값 : {result}")
+# finally:
+#     print("프로그램이 종료되었습니다.")
+# 믿을 수 없는 부분을 입력하게 됐을 때 처리하는 것들 -> 지시사항 3, 4 / +a 최상위 예외
+
+'''
+사용자로부터 리스트의 인덱스를 입력 받아 해당 인덱스의 값을 출력하는 프로그램을 작성하시오.
+만약 잘못된 인덱스를 입력하면 적절한 예외 메시지를 출력하시오.
+
+지시 사항
+1. 미리 정의된 리스트가 있다.
+2. 사용자로부터 리스트의 인덱스를 입력 받는다
+3. 입력받은 인덱스를 사용하여 리스트의 값을 출력한다.
+4. 인덱스가 리스트의 범위를 벗어나면 적절한 메시지를 출력한다.
+5. 사람을 의심하고 예상되는 예외를 적용한다.
+6. 예외가 발생하지 않은 경우 "정상적으로 처리되었습니다"라는 메시지를 출력한다.
+7. 프로그램 종료 메시지를 출력한다.
++
+a. 마이너스인덱스는 적용시키지않는다-> 사용자정의예외클래스를 통해서 하겠습니다. NegativeNumIndexError로 이름짓고
+'''
+
+
+# 예외 목록 : IndexError / ValueError / NegativeNumIndexError / Exception
+class NegativeNumIndexError(Exception):
+    pass
+
+my_list = [10, 20, 30, 40, 50]
+try :
+    index_num = input("인덱스 넘버를 입력하세요 >>> ")
+    index_num = int(index_num)
+    if index_num < 0:                           # raise가 여태까지는 계속 제일 밑에 있었고, 그다음 except으로
+                                                # 넘어갔는데 꼭 그런거 아니고 if문은 조건 통과용으로
+                                                # 어디든 적용 가능합니다.
+        raise NegativeNumIndexError("마이너스인덱스는 적용하지 않습니다.")
+    chosen_element = my_list[index_num]
+    # index_num만 기준으로 했기 때문에 거기에 정수가 입력되는 것까지는 문제 없음
+    # 그다음에 정확한 인덱스 넘버로 대입하는 과정까지 체크하고 except로 넘어가야 하기 때문에 이렇게 작성해야겠습니다.
+except NegativeNumIndexError as e:
+    print(e)
+except ValueError as e:
+    print(e)
+    print("정수만 입력할 수 있습니다.")
+except IndexError as e:
+    print(e)
+    print("list 범위를 벗어났습니다.")
+except Exception as e:
+    print("예측할 수 없는 예외가 발생했습니다.")
+    print(e)
+else:
+    print(f"선택된 값은 {chosen_element}입니다.")
+finally:
+    print("프로그램이 종료되었습니다.")
