@@ -358,7 +358,7 @@ class Person:
         self.age = age
 
 person1 = Person(name="John", age=30)       # keyword argument 적용함.
-attribute = input("출력할 속성을 입력하세요 >>> ")
+# attribute = input("출력할 속성을 입력하세요 >>> ")
 # vars() 함수 : 객체의 속성명-값을 dictionary의 키-값 쌍으로 만들어주는 함수
 # 풀이법 # 1
 # try:
@@ -381,7 +381,20 @@ attribute = input("출력할 속성을 입력하세요 >>> ")
 #     print("프로그램이 종료되었습니다.")
 
 # 풀이법 # 2
+# print(getattr(person1, attribute))
 
+try :
+    attribute2 = input("출력할 속성명을 입력하세요 >>> ")
+    print(getattr(person1, attribute2))
+except AttributeError as e:
+    print("존재하지 않는 속성입니다.")
+    print(e)
+except Exception as e:
+    print(e)
+else:
+    print("정상적으로 처리되었습니다.")
+finally:
+    print("프로그램이 종료되었습니다.")
 
 
 

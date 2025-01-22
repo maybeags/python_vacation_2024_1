@@ -1,0 +1,6 @@
+15:30 lunch meeting
+19:00 evening web lesson
+22:30 night English lesson
+09:30 Java
+13:00 Python
+
