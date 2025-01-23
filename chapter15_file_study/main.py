@@ -139,8 +139,110 @@ import time
     3. 파일 입력(input)
         1) 텍스트 파일 읽기
             1)-1. read() 메서드
+            형식 :
+                file.read(size)
+'''
+# file = open("hello.txt", "rt")
+#
+# str = file.read()   # size를 명시하지 않으면 전부 다 가지고 옵니다.
+#
+# print(str, end="🙌")  # keyword argument형태로 end 속성을 불러왔고,
+#                     # 거기에 ""이라는 데이터를 대입
+#
+# file.close()
+'''
+파일과 동일한 모습으로 출력하기 위해서 print() 함수의 자동 줄바꿈 방지를 위한 end="" 속성 추가.
+read() 메서드를 통해 전체를 읽으려면 메모리 공간이 많이 필요합니다. 읽어야 할 파일이 크다면
+일부만 읽어들이는 작업을 반복하는 반복문을 통해 파일 전체를 읽어내도록 구현하는 편이 좋습니다.
+'''
+# file = open("hello.txt", "rt")
+# end_of_text = False
+# while not end_of_text:
+#     str = file.read(1)      # 일부만 파일에 대입
+#     if not str:
+#         break
+#     print(str, end="")      # 이 경우에는 str에 문자 하나씩 대입하고 출력하는 것을 반복합니다. 그렇기 때문 end=""이 필수
+# file.close()
+'''
+            2) readline() 메서드
+                텍스트 파일을 한 줄씩 읽어서 처리하는 메서드
+                만약 파일이 종료되어 더 읽어들일 데이터가 없다면 빈 문자열("")을 읽어들입니다.
+                반복문을 이용해서 여러 번 읽어들여야 할 때 파일 전체를 읽을 수 있습니다.
+'''
+# file = open("hello.txt", "rt")
+
+# str = file.readline()           # 한줄만 읽음 -> 전체 읽고 싶으면 반복문 -> 끝이 어딘지 모른다 -> while 채용
+# print(str)
+#
+# end_of_text = False
+# while not end_of_text:
+#     str = file.readline()
+#     if not str:
+#         end_of_text = True       # 위에 read는 break 적용했고, 여기서는 end_of_text = True 적용했습니다.
+#     print(str, end="")
+#
+# file.close()
+'''
+            3) readlines() 메서드
+                전체 라인을 읽어들여서 각 라인 단위로 '리스트'에 저장하는 메서드
+'''
+
+file = open("hello.txt", "rt")
+lines = file.readlines()
+# print(lines[0], end="")
+# print(lines[1], end="")
+# print(lines[2], end="")
+# print(lines[3], end="")
+
+# 일반 for문으로 작성하세요
+# for i in range(len(lines)):
+#     print(lines[i], end="")
+
+# 향상된 for문으로 작성하세요
+# for line in lines:
+#     print(line, end="")
+#
+# file.close()
+
+# 저거 잘 정리해서
+'''
+hello
+nice to meet you.
+My name is Ahn Geunsu.
+I drank a cup of coffee.
+로 정렬시켜보세요.
+'''
 
 '''
+나라별 수도를 순차적으로 반복시켜 nation 리스트에 사전에 미리 저장해두었습니다.
+
+nation 리스트의 내용을 이해하여 다음과 같은 nation.txt 파일을 '생성'하세요.
+
+실행 예
+
+생성된 nation.txt 파일의 내용은 다음과 같습니다.
+
+Greece - Athene
+Germany - Berlin
+South Korea - Seoul
+USA - Washington D.C
+'''
+nation = ["Greece", "Athene", "Germany", "Berlin", "South Korea", "Seoul", "USA", "Washington D.C"]
+
+# file = open("nation.txt", "wt")
+# 막 쓴 버전
+# file.write(nation[0] + " - " + nation[1] + "\n")
+# file.write(nation[2] + " - " + nation[3] + "\n")
+# file.write(nation[4] + " - " + nation[5] + "\n")
+# file.write(nation[6] + " - " + nation[7])
+# file.close()
+# 반복문 버전
+with open("nation.txt", "wt") as file:
+    # 리스트를 두 항목씩 반복하면서 파일에 작성할겁니다
+    for i in range(0, len(nation), 2):
+        file.write(nation[i] + " - " + nation[i+1] + "\n")
+
+
 
 
 
